@@ -5,6 +5,8 @@ library(foreign)
 library(skimr)
 
 library(readstata13)
+
+eitc <- read.dta("eitc.dta")
 dat <- read.dta13("https://github.com/georgehua/INF2178-PS/blob/master/PS4/eitc.dta")
 
 eitc <- read.dta("https://github.com/georgehua/INF2178-PS/blob/master/PS4/eitc.dta")
