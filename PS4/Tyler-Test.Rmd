@@ -1,0 +1,45 @@
+---
+title: "PS4"
+output: pdf_document
+---
+
+
+```{r, setup, eval=FALSE}
+
+library(tidyverse)
+library(ggplot2)
+library(foreign)
+library(skimr)
+library(readstata13)
+library(performance)
+
+eitc <- read.dta("eitc.dta")
+# dat <- read.dta13("https://github.com/georgehua/INF2178-PS/blob/master/PS4/eitc.dta")
+
+# eitc <- read.dta("https://github.com/georgehua/INF2178-PS/blob/master/PS4/eitc.dta")
+
+skim(dataf, work, year, children)
+
+eitc$post93 <- as.numeric(eitc$year >= 1994)
+
+eitc$anykids <- as.factor(eitc$children >= 1)
+
+eitc <- eitc %>% drop_na()
+eitc %>% summarise_all(.funs = funs(sum(is.na(.))))
+
+ggplot(eitc, aes(year, work, color = anykids)) +
+  stat_summary(geom = 'line') +
+  geom_vline(xintercept = 1994) +
+  theme_minimal()
+
+model = lm(work ~ anykids*post93, data = eitc)
+tidy(model)
+check_model(model)
+model_performance(model)
+
+```
+
+
+```{r}
+
+```
