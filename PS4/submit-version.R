@@ -6,7 +6,7 @@ library(tidyverse)
 library(broom)
 library(ggplot2)
 
-eitc <- read.dta("eitc.dta")
+eitc <- read.csv("https://raw.githubusercontent.com/georgehua/INF2178-PS/master/PS4/eitc.csv")
 
 write_csv(eitc, 'eitc.csv')
 skim(eitc, work, year, children)
