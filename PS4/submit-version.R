@@ -5,11 +5,14 @@
 library(tidyverse)
 library(broom)
 library(ggplot2)
+library(performance)
 
 eitc <- read.csv("https://raw.githubusercontent.com/georgehua/INF2178-PS/master/PS4/eitc.csv")
 
-write_csv(eitc, 'eitc.csv')
 skim(eitc, work, year, children)
+
+eitc <- eitc %>% drop_na()
+eitc %>% summarise_all(.funs = funs(sum(is.na(.))))
 
 # the EITC went into effect in the year 1994
 # The EITC only affects women with at least one child, so the
@@ -24,4 +27,9 @@ ggplot(eitc, aes(year, work, color = anykids)) +
   theme_minimal()
 
 model = lm(work ~ anykids*post93, data = eitc)
-summary(model)
+
+tidy(model)
+
+check_model(model)
+
+model_performance(model)
