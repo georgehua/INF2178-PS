@@ -31,10 +31,12 @@ ggplot(eitc, aes(year, work, color = anykids)) +
   ggtitle("Average workforce paticipation on year for unmarried women") +
   theme_minimal()
 
+# build model
 model = lm(work ~ anykids*post93, data = eitc)
 
 summary(model)
 
+# check performance
 check_model(model)
 
 model_performance(model)
