@@ -1,0 +1,26 @@
+> out = rdrobust(nextGPA_nonorm, X, kernel = "triangular", p = 1, 
++ bwselect = "mserd")
+[1] "Mass points detected in the running variable."
+> summary(out)
+Call: rdrobust
+
+Number of Obs.                40582
+BW type                       mserd
+Kernel                   Triangular
+VCE method                       NN
+
+Number of Obs.               34854        5728
+Eff. Number of Obs.           5612        3164
+Order est. (p)                   1           1
+Order bias  (q)                  2           2
+BW est. (h)                  0.470       0.470
+BW bias (b)                  0.746       0.746
+rho (h/b)                    0.630       0.630
+Unique Obs.                    274         155
+
+=============================================================================
+        Method     Coef. Std. Err.         z     P>|z|      [ 95% C.I. ]       
+=============================================================================
+  Conventional     0.224     0.038     5.852     0.000     [0.149 , 0.299]     
+        Robust         -         -     4.726     0.000     [0.126 , 0.304]     
+=============================================================================

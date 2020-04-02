@@ -1,0 +1,25 @@
+> out = rdrobust(data$hsgrade_pct, X)
+[1] "Mass points detected in the running variable."
+> summary(out)
+Call: rdrobust
+
+Number of Obs.                44362
+BW type                       mserd
+Kernel                   Triangular
+VCE method                       NN
+
+Number of Obs.               37211        7151
+Eff. Number of Obs.           6934        3972
+Order est. (p)                   1           1
+Order bias  (q)                  2           2
+BW est. (h)                  0.518       0.518
+BW bias (b)                  0.801       0.801
+rho (h/b)                    0.646       0.646
+Unique Obs.                    274         156
+
+=============================================================================
+        Method     Coef. Std. Err.         z     P>|z|      [ 95% C.I. ]       
+=============================================================================
+  Conventional     1.140     0.961     1.186     0.235    [-0.743 , 3.023]     
+        Robust         -         -     1.140     0.254    [-0.943 , 3.566]     
+=============================================================================

@@ -1,0 +1,30 @@
+> out = rdrandinf(nextGPA_nonorm, X, wl = -0.005, wr = 0.01, seed = 50)
+
+Selected window = [-0.005;0.01] 
+
+Running randomization-based test...
+
+Randomization-based test complete. 
+
+
+Number of obs =       40582
+Order of poly =       0
+Kernel type   =       uniform
+Reps          =       1000
+Window        =       set by user
+H0:       tau =       0
+Randomization =       fixed margins
+
+Cutoff c = 0          Left of c       Right of c      
+Number of obs         34854           5728            
+Eff. number of obs    208             67              
+Mean of outcome       1.83            2.063           
+S.d. of outcome       0.868           0.846           
+Window                -0.005          0.01            
+
+                                  Finite sample        Large sample
+
+Statistic            T              P>|T|          P>|T|     Power vs d = 0.434
+
+Diff. in means       0.234          0.063          0.051     0.952
+

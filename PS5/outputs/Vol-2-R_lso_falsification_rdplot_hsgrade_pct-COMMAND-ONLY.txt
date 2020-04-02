@@ -1,0 +1,2 @@
+> rdplot(data$hsgrade_pct, X, x.label = "Score", y.label = "", 
++ title = "")

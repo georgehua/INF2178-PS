@@ -1,0 +1,30 @@
+> data2 = data.frame(nextGPA_nonorm, X)
+> dim(data2)
+[1] 44362     2
+> collapsed = aggregate(nextGPA_nonorm ~ X, data = data2, mean)
+> dim(collapsed)
+[1] 429   2
+> out = rdrobust(collapsed$nextGPA_nonorm, collapsed$X)
+> summary(out)
+Call: rdrobust
+
+Number of Obs.                  429
+BW type                       mserd
+Kernel                   Triangular
+VCE method                       NN
+
+Number of Obs.                 274         155
+Eff. Number of Obs.             51          50
+Order est. (p)                   1           1
+Order bias  (q)                  2           2
+BW est. (h)                  0.506       0.506
+BW bias (b)                  0.805       0.805
+rho (h/b)                    0.628       0.628
+Unique Obs.                    274         155
+
+=============================================================================
+        Method     Coef. Std. Err.         z     P>|z|      [ 95% C.I. ]       
+=============================================================================
+  Conventional     0.246     0.032     7.640     0.000     [0.183 , 0.309]     
+        Robust         -         -     6.279     0.000     [0.166 , 0.316]     
+=============================================================================

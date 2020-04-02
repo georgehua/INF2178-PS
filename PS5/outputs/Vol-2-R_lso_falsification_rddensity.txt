@@ -1,0 +1,21 @@
+> out = rddensity(X)
+> summary(out)
+
+RD Manipulation Test using local polynomial density estimation.
+
+Number of obs =       44362
+Model =               unrestricted
+Kernel =              triangular
+BW method =           comb
+VCE method =          jackknife
+
+Cutoff c = 0          Left of c           Right of c          
+Number of obs         37211               7151                
+Eff. Number of obs    10083               4137                
+Order est. (p)        2                   2                   
+Order bias (q)        3                   3                   
+BW est. (h)           0.706               0.556               
+
+Method                T                   P > |T|             
+Robust                -0.4544             0.6496              
+

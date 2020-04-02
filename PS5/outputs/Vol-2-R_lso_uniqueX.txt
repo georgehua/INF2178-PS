@@ -1,0 +1,2 @@
+> length(unique(X))
+[1] 430

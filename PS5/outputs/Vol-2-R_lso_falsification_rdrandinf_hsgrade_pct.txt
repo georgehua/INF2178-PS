@@ -1,0 +1,31 @@
+> out = rdrandinf(data$hsgrade_pct, X, wl = -0.005, wr = 0.01, 
++ seed = 50)
+
+Selected window = [-0.005;0.01] 
+
+Running randomization-based test...
+
+Randomization-based test complete. 
+
+
+Number of obs =       44362
+Order of poly =       0
+Kernel type   =       uniform
+Reps          =       1000
+Window        =       set by user
+H0:       tau =       0
+Randomization =       fixed margins
+
+Cutoff c = 0          Left of c       Right of c      
+Number of obs         37211           7151            
+Eff. number of obs    228             77              
+Mean of outcome       29.118          32.675          
+S.d. of outcome       21.737          21.625          
+Window                -0.005          0.01            
+
+                                  Finite sample        Large sample
+
+Statistic            T              P>|T|          P>|T|     Power vs d = 10.868
+
+Diff. in means       3.557          0.219          0.213     0.968
+

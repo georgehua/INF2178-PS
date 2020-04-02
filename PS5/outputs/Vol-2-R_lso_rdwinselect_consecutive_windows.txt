@@ -1,0 +1,38 @@
+> Z = cbind(data$hsgrade_pct, data$totcredits_year1, data$age_at_entry, 
++ data$male, data$bpl_north_america, data$english, data$loc_campus1, 
++ data$loc_campus2, data$loc_campus3)
+> colnames(Z) = c("hsgrade_pct", "totcredits_year1", "age_at_entry", 
++ "male", "bpl_north_america", "english", "loc_campus1", "loc_campus2", 
++ "loc_campus3")
+> out = rdwinselect(X, Z, p = 1, seed = 50, wmin = 0.01, wstep = 0.01, 
++ cutoff = 5e-06)
+
+
+Window selection for RD under local randomization 
+
+Number of obs  =         44362
+Order of poly  =         1
+Kernel type    =         uniform
+Reps           =         1000
+Testing method =         rdrandinf
+Balance test   =         diffmeans
+
+Cutoff c = 0             Left of c           Right of c          
+Number of obs            37211               7151                
+1st percentile           298                 0                   
+5th percentile           1817                269                 
+10th percentile          3829                663                 
+20th percentile          7588                1344                
+
+Window length / 2       p-value      Var. name       Bin.test     Obs<c  Obs>=c
+
+0.01                     0.008     loc_campus3         0            228    77   
+0.02                     0         totcredits_year     0            298    214  
+0.03                     0         hsgrade_pct         0            374    269  
+0.04                     0         loc_campus1         0            494    375  
+0.05                     0         totcredits_year     0            636    418  
+0.06                     0         hsgrade_pct         0            714    497  
+0.07                     0         hsgrade_pct         0            807    663  
+0.08                     0         totcredits_year     0            877    727  
+0.09                     0         totcredits_year     0            1049   815  
+0.1                      0         totcredits_year     0.001        1131   973  

@@ -1,0 +1,27 @@
+> clustervar = X
+> out = rdrobust(nextGPA_nonorm, X, kernel = "triangular", p = 1, 
++ bwselect = "mserd", vce = "hc0", cluster = clustervar)
+[1] "Mass points detected in the running variable."
+> summary(out)
+Call: rdrobust
+
+Number of Obs.                40582
+BW type                       mserd
+Kernel                   Triangular
+VCE method                      HC0
+
+Number of Obs.               34854        5728
+Eff. Number of Obs.           5008        3016
+Order est. (p)                   1           1
+Order bias  (q)                  2           2
+BW est. (h)                  0.428       0.428
+BW bias (b)                  0.696       0.696
+rho (h/b)                    0.616       0.616
+Unique Obs.                    274         155
+
+=============================================================================
+        Method     Coef. Std. Err.         z     P>|z|      [ 95% C.I. ]       
+=============================================================================
+  Conventional     0.221     0.032     6.991     0.000     [0.159 , 0.283]     
+        Robust         -         -     5.768     0.000     [0.140 , 0.284]     
+=============================================================================

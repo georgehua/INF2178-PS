@@ -1,0 +1,13 @@
+> binom.test(77, 305, 1/2)
+
+	Exact binomial test
+
+data:  77 and 305
+number of successes = 77, number of trials = 305, p-value < 2.2e-16
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.2046807 0.3051175
+sample estimates:
+probability of success 
+              0.252459 
+

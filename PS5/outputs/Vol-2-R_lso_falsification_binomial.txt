@@ -1,0 +1,22 @@
+> out = rdwinselect(X, wmin = 0.01, nwindows = 1, cutoff = 5e-06)
+
+
+Window selection for RD under local randomization 
+
+Number of obs  =         44362
+Order of poly  =         0
+Kernel type    =         uniform
+Reps           =         1000
+Testing method =         rdrandinf
+Balance test   =         diffmeans
+
+Cutoff c = 0             Left of c           Right of c          
+Number of obs            37211               7151                
+1st percentile           298                 0                   
+5th percentile           1817                269                 
+10th percentile          3829                663                 
+20th percentile          7588                1344                
+
+Window length / 2       p-value      Var. name       Bin.test     Obs<c  Obs>=c
+
+0.01                     NA        NA                  0            228    77   
