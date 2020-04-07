@@ -1,0 +1,27 @@
+---
+title: "plotting"
+author: "team"
+date: "4/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(skimr)
+library(ggplot2)
+library(rddensity)
+library(rdrobust)
+library(broom)
+library(tidyverse)
+
+
+dt <- read_csv("CIT_2019_Cambridge_education.csv")
+
+```
+
+
+```{r, echo=FALSE}
+
+skim(dt)
+
+```
+
