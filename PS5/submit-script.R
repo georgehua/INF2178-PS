@@ -18,7 +18,7 @@ library(ggpubr)
 dt_raw <- read_csv("https://raw.githubusercontent.com/georgehua/INF2178-PS/master/PS5/CIT_2019_Cambridge_education.csv")
 
 # only select distance to GPA cutoff from -1.6 to 1.6
-dt <- dt %>%
+dt <- dt_raw %>%
   filter(X >= -1.6 & X <= 1.6)
 
 #########################
