@@ -1,4 +1,3 @@
-library(sjPlot)
 library(skimr)
 library(ggplot2)
 library(rddensity)
@@ -10,14 +9,14 @@ library(ggpubr)
 #########################
 # Import and cleaning data
 #########################
-dt <- read_csv("CIT_2019_Cambridge_education.csv")
+dt_raw <- read_csv("CIT_2019_Cambridge_education.csv")
 dt <- dt %>%
-  filter(X >= -1.2 & X <= 1.2)
+  filter(X >= -1.6 & X <= 1.6)
 
 #########################
 # Summary stats
 #########################
-skim(dt)
+skim(dt_raw)
 
 # how many total data points
 nrow(dt)
@@ -35,41 +34,51 @@ ggplot(dt, aes(x=X)) +
   theme_bw()
 
 #########################
-# test whether the density of the score is continuous at the cutoff
+# Assumptions
 #########################
+
+# Running variable continuous at the cutoff
+
+# robust test
 density_check <- rddensity(dt$X)
 summary(density_check)
 
-# rdplot(dt$hsgrade_pct, dt$X,
-#        x.label = "Distance to GPA Cut-off",
-#        y.label = "Frequency",
-#        title="Frequency distribution on unique distance to GPA Cut-off",
-#        col.dots="red")
+# plot test
+rdplotdensity(density_check, dt$X, xlabel = "Distance to the GPA cut-off", ylabel = "Density", title = "Density plot of X (Distance to the GPA cut-off)")
 
-gghistogram(dt, x = "X", bins = 30,
-            add = "mean", rug = TRUE)
+
+# Continuous for other revelent variables
+summary(rdrobust(dt$hsgrade_pct, dt$X))
+summary(rdrobust(dt$totcredits_year1, dt$X))
+summary(rdrobust(dt$age_at_entry, dt$X))
+summary(rdrobust(dt$male, dt$X))
+summary(rdrobust(dt$bpl_north_america, dt$X))
+summary(rdrobust(dt$english, dt$X))
+summary(rdrobust(dt$loc_campus1, dt$X))
+summary(rdrobust(dt$loc_campus2, dt$X))
+summary(rdrobust(dt$loc_campus3, dt$X))
 
 #########################
 # Model
 #########################
-
 # Probation on Immediate decision, by gender
-male_rdd <- dt %>% filter(male == 1)
+
 female_rdd <- dt %>% filter(male == 0)
-
 rdplot(female_rdd$left_school, female_rdd$X,  x.label = "Distance to GPA cut-off", y.label = "Left University Voluntariliy", title="Effect of Academic Probation on Attrition, Female", col.dots="red")
+summary(rdrobust(female_rdd$left_school, female_rdd$X))
 
+male_rdd <- dt %>% filter(male == 1)
 rdplot(male_rdd$left_school, male_rdd$X,  x.label = "Distance to GPA cut-off", y.label = "Left University Voluntariliy", title="Effect of Academic Probation on Attrition, Male", col.dots="red")
-
+summary(rdrobust(male_rdd$left_school, male_rdd$X))
 
 # Probation on Immediate decision, by native-language
 eng_rdd <- dt %>% filter(english == 1)
-non_eng_rdd <- dt %>% filter(english == 0)
-
 rdplot(eng_rdd$left_school, eng_rdd$X,  x.label = "Distance to GPA cut-off", y.label = "Left University Voluntariliy", title="Effect of Native Language on Attrition, English", col.dots="red")
+summary(rdrobust(eng_rdd$left_school, eng_rdd$X))
 
+non_eng_rdd <- dt %>% filter(english == 0)
 rdplot(non_eng_rdd$left_school, non_eng_rdd$X,  x.label = "Distance to GPA cut-off", y.label = "Left University Voluntariliy", title="Effect of Native Language on Attrition, Non-English", col.dots="red")
-
+summary(rdrobust(non_eng_rdd$left_school, non_eng_rdd$X))
 
 
 
