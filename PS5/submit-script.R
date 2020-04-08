@@ -1,3 +1,7 @@
+## UofT iSchool INF2178 PS5
+## Author: Zhaotian Li, Yonghao Li, Hongtianxu Hua
+## Date: 8 Apr 2020
+
 library(skimr)
 library(ggplot2)
 library(rddensity)
